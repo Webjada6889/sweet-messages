@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Message for You 💛</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family:'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffe6f0, #fff0b3);
+      margin: 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Animated name */
+    #herName {
+      font-size: 2.5rem;
+      color: #ff4d6d;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 5px #fff;
+      opacity: 0;
+      animation: fadeInName 2s forwards;
+    }
+
+    @keyframes fadeInName {
+      0% { opacity: 0; transform: scale(0.5); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 5px #fff;
+    }
+/* 
+    #photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ff4d6d;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(255,77,109,0.5);
+    } */
+
+    #photo{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+margin-bottom:20px;
+}
+
+    #message {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 30px;
+      transition: all 0.5s ease;
+    }
+
+    #surpriseBtn {
+      /* padding: 10px 25px;
+      font-size: 1rem;
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s; */
+  
+padding:12px 30px;
+font-size:1rem;
+background:linear-gradient(45deg,#ff4d6d,#ff758f);
+color:white;
+border:none;
+border-radius:30px;
+cursor:pointer;
+transition:0.3s;
+}
+
+#surpriseBtn:hover{
+transform:scale(1.1);
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+
+    }
+
+    
+
+    #surpriseBtn:hover {
+      background-color: #ff1a40;
+      transform: scale(1.1);
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatUp 1s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
+    }
+.card{
+background: rgba(255,255,255,0.25);
+backdrop-filter: blur(10px);
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+max-width:400px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="card"></div>
+  </div>
+
+  <!-- Animated name -->
+  <div id="herName">ASIYA 💖</div>
+
+  <h1>💛 A Sweet Message for You 💛</h1>
+  
+  <!-- Photo -->
+  <img id="photo" src="Asiya.jpeg" alt="Her Photo">
+
+  <div id="message">Loading...</div>
+  <button id="surpriseBtn">Click for another surprise ❤️</button>
+
+  <script>
+   const messages = [
+"You make my day brighter ☀️",
+"Your smile is magic 😄",
+"I’m lucky to know you 💛",
+"You make everything better 🌸",
+"Thinking of you makes me happy 😊",
+"You are amazing just as you are ✨",
+"Your laughter is my favorite sound 😍",
+"You make my heart smile 💖",
+"You’re my favorite person 🌟",
+"Being with you feels like home 🏡",
+
+"You bring peace to my heart 💕",
+"I love the way you smile 😊",
+"You are special to me 💫",
+"You make my world beautiful 🌍",
+"Every moment with you is precious 💖",
+"You are my sunshine 🌞",
+"You make my life sweeter 🍯",
+"My heart is happy because of you 💘",
+"You are one of a kind 🌹",
+"I enjoy every conversation with you 💬",
+
+"You light up my world ✨",
+"You make ordinary days feel special 🌸",
+"Your happiness matters to me 💛",
+"You are truly wonderful 🌷",
+"I appreciate having you in my life 💖",
+"You are a blessing 🌟",
+"My favorite moment is when I talk to you 😊",
+"You are always on my mind 💭",
+"You make life more exciting 🎉",
+"I’m grateful for you 💕"
+];
+
+    const messageDiv = document.getElementById('message');
+    const button = document.getElementById('surpriseBtn');
+
+    function showMessage() {
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      messageDiv.textContent = messages[randomIndex];
+      createHeart();
+      
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = Math.random() * window.innerHeight + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 1000);
+    }
+
+    button.addEventListener('click', showMessage);
+
+    // Show a message immediately on page load
+    showMessage();
+
+    
+  </script>
+
+</body>
+</html>
